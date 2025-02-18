@@ -36,7 +36,6 @@ const Index = () => {
       });
     }
 
-    // Changed to use a single setTimeout for state updates
     setTimeout(() => {
       const nextQuestion = currentQuestionIndex + 1;
       if (nextQuestion < questions[difficulty!].length) {
@@ -44,7 +43,7 @@ const Index = () => {
       } else {
         setGameComplete(true);
       }
-    }, 1500); // Increased delay slightly to ensure animation completes
+    }, 1500);
   };
 
   const handleRestart = () => {
@@ -57,30 +56,33 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
+        {/* Added relative positioning and z-index to header */}
+        <div className="relative z-10 text-center mb-12 pt-4 sm:pt-0">
           <h1 className="text-4xl font-bold mb-4">Soccer Trivia</h1>
           <p className="text-gray-600">Test your knowledge of the beautiful game</p>
         </div>
 
-        {!difficulty && (
-          <DifficultySelector onSelect={handleDifficultySelect} />
-        )}
+        <div className="relative z-0"> {/* Added wrapper with lower z-index */}
+          {!difficulty && (
+            <DifficultySelector onSelect={handleDifficultySelect} />
+          )}
 
-        {difficulty && !gameComplete && (
-          <QuestionCard
-            key={currentQuestionIndex} // Add key prop to force remount
-            question={questions[difficulty][currentQuestionIndex]}
-            onAnswer={handleAnswer}
-          />
-        )}
+          {difficulty && !gameComplete && (
+            <QuestionCard
+              key={currentQuestionIndex}
+              question={questions[difficulty][currentQuestionIndex]}
+              onAnswer={handleAnswer}
+            />
+          )}
 
-        {gameComplete && (
-          <ScoreDisplay
-            score={score}
-            total={questions[difficulty!].length}
-            onRestart={handleRestart}
-          />
-        )}
+          {gameComplete && (
+            <ScoreDisplay
+              score={score}
+              total={questions[difficulty!].length}
+              onRestart={handleRestart}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
