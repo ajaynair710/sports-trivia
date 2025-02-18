@@ -36,12 +36,15 @@ const Index = () => {
       });
     }
 
-    const nextQuestion = currentQuestionIndex + 1;
-    if (nextQuestion < questions[difficulty!].length) {
-      setTimeout(() => setCurrentQuestionIndex(nextQuestion), 1000);
-    } else {
-      setTimeout(() => setGameComplete(true), 1000);
-    }
+    // Changed to use a single setTimeout for state updates
+    setTimeout(() => {
+      const nextQuestion = currentQuestionIndex + 1;
+      if (nextQuestion < questions[difficulty!].length) {
+        setCurrentQuestionIndex(nextQuestion);
+      } else {
+        setGameComplete(true);
+      }
+    }, 1500); // Increased delay slightly to ensure animation completes
   };
 
   const handleRestart = () => {
