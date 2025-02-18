@@ -68,6 +68,7 @@ const Index = () => {
 
         {difficulty && !gameComplete && (
           <QuestionCard
+            key={currentQuestionIndex} // Add key prop to force remount
             question={questions[difficulty][currentQuestionIndex]}
             onAnswer={handleAnswer}
           />

@@ -16,13 +16,13 @@ const QuestionCard = ({ question, onAnswer }: QuestionCardProps) => {
   const [showResult, setShowResult] = useState(false);
 
   const handleAnswer = (answer: string) => {
-    if (selectedAnswer !== null) return;
+    if (selectedAnswer !== null) return; // Prevent multiple selections
     
     setSelectedAnswer(answer);
     setShowResult(true);
     
     const isCorrect = answer === question.correctAnswer;
-    setTimeout(() => onAnswer(isCorrect), 1000);
+    onAnswer(isCorrect);
   };
 
   const getOptionClass = (option: string) => {
