@@ -1,3 +1,4 @@
+
 # Sports Trivia Game
 
 Welcome to the **Sports Trivia Game**! This interactive game allows users to test their knowledge of different sports. Whether you're a fan of soccer, basketball, tennis, or other sports, this game will challenge your knowledge and keep you engaged.
@@ -7,7 +8,7 @@ Welcome to the **Sports Trivia Game**! This interactive game allows users to tes
 - [Installation Instructions](#installation-instructions)
 - [Technologies Used](#technologies-used)
 - [Project Setup](#project-setup)
-- [How to Play](#how-to-play)
+- [Live Demo](#live-demo)
 
 ## Installation Instructions
 
@@ -45,3 +46,9 @@ This project is built with the following technologies:
 - **Shadcn-UI**: A design system and set of UI components.
 - **Tailwind CSS**: A utility-first CSS framework for styling the application.
 
+
+## Live Demo
+
+You can play the game right now by visiting the live version of the app:
+
+[**Sports Trivia Game - Live Demo**](https://sport-trivia.netlify.app/)
